@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<stdlib.h>
+#include<ctype.h>
 #include<string.h>
 #define MAX 20
 
@@ -24,29 +24,50 @@ void clear(stack *s){
     s->top = -1;
 }
 
+char peek(stack *s){
+    return (s->array[s->top]);
+}
+
 int precedence(char n){
     if (n == '(')
-        return 1;
+        return 5;
     else if(n == "^")
-        return 2;
+        return 4;
     else if(n == "/" || n =="*")
         return 3;
     else if(n == "+" || n =="-")
-        return 4;
+        return 2;
     else
         return 0;
 }
 
 int main(){
-    char array[MAX], operands[MAX];
+    char array[MAX], operands[MAX], top_value;
     stack st;
+    int j;
     printf("enter the infix: \n");
     gets(array);
     clear(&st);
-    for( int i = 1; i < MAX; i++){
-        if(array[i] == '('){
-            push(&st,array[i]);
+    for( int i = 0, j ; i < MAX; i++){
+        if(isalnum(array[i]) == 1){
+            operands[j] = array[i];
+            j++;
         }
+        else{
+            if(array[i] == '('){
+                push(&st,array[i]);
+            }
+            else{
+                top_value = peek(&st);
+                if(isalnum(top_value)==0){
 
+                }
+            }
+            while( precedence(st.array[st.top]) > precedence(array[i])){
+                c = pop(&st);
+                operands[j] = c;
+                j++;
+            }
+        }
     }
 }
