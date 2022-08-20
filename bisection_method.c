@@ -25,16 +25,15 @@ float bisection(float xl,float xu,int it) {
 	char remark[30];
 	int i =1;
 	do {
-		xm = (xu+xl)/02.000;
 		temp = xm;
-		printf("%f\n",temp);
+		xm = (xu+xl)/02.000;
 		f_xl=  equation(xl);
 		f_xu = equation(xu);
 		f_xm = equation(xm);
 		if(f_xm > 0) {
-			xm = xu;
+			xu = xm;
 		} else {
-			xm=xl;
+			xl=xm;
 		}
 		print(i,xl,xu,xm,f_xl,f_xu,f_xm);
 		i++;
@@ -44,7 +43,7 @@ float bisection(float xl,float xu,int it) {
 			return 0;
 		}
 	}
-	while(((temp - xm)> 0.0001));
+	while((fabs(temp - xm)> 0.0001));
 }
 
 int main() {
