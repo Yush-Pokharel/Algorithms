@@ -21,7 +21,7 @@ char pop(stack *s){
 }
 
 void traverse(stack *s){
-    for( int i = 0; i <= s->top; i++){
+    for( int i = 0; i  <=s->top; i++){
         printf("%c",s->array[i]);
     }   
 }
@@ -82,6 +82,10 @@ int main(){
                     char receive = pop(&op_stack);
                     push(&post_stack, receive);
                     push(&op_stack,array[i]);
+                    if(precedence(op_stack.array[op_stack.top-1]) > 0){
+                    	char skip = pop(&op_stack);
+                    	i--;                    	
+					}
                 }
             }
             else{
