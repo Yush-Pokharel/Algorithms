@@ -1,3 +1,4 @@
-# git_tut
+# Data Structures and Various Algorithms
 
-Learning the inner workings of git and git hub with data structures and algorithms
+Using and learning git and github practically while coding the implementation of various data structures and algorithms in C,
+with some miscellaneous works in python.
