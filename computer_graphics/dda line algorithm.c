@@ -19,7 +19,6 @@ void main() {
 		m=abs(dx);
 	else
 
-		5
 
 		m=abs(dy);
 	printf("(%d,%d)",int(x),int(y));
