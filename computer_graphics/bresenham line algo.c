@@ -31,8 +31,6 @@ void draw(int x1,int y1,int x2,int y2) {
 		xend=x2;
 	}
 
-	7
-
 	putpixel(x,y,10);
 	while(x<xend) {
 		if(p<0) {
